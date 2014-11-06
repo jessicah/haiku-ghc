@@ -1,0 +1,30 @@
+--- cabal-install.cabal copy	2014-11-06 18:23:28.451411968 +1300
++++ cabal-install.cabal	2014-11-06 18:22:02.408158208 +1300
+@@ -34,6 +34,10 @@
+   description:  Use directory < 1.2 and old-time
+   default:      False
+ 
++flag network-uri
++  description:  Get Network.URI from the network-uri package
++  default:      True
++
+ executable cabal
+     main-is:        Main.hs
+     ghc-options:    -Wall -fwarn-tabs
+@@ -121,8 +125,14 @@
+         containers >= 0.1      && < 0.6,
+         filepath   >= 1.0      && < 1.4,
+         HTTP       >= 4000.0.8 && < 4001,
+-        mtl        >= 2.0      && < 3,
+-        network    >= 1        && < 3,
++        mtl        >= 2.0      && < 3
++    
++    if flag(network-uri)
++      build-depends: network-uri >= 2.6, network >= 2.6 && < 3
++    else
++      build-depends: network >= 1 && < 3
++    
++    build-depends:
+         pretty     >= 1        && < 1.2,
+         random     >= 1        && < 1.1,
+         stm        >= 2.0      && < 3,
