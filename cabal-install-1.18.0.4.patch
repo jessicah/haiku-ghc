@@ -1,5 +1,5 @@
---- cabal-install.cabal	2014-11-06 18:23:28.451411968 +1300
-+++ cabal-install.cabal	2014-11-06 18:22:02.408158208 +1300
+--- a/cabal-install.cabal	2014-11-06 18:23:28.451411968 +1300
++++ b/cabal-install.cabal	2014-11-06 18:22:02.408158208 +1300
 @@ -34,6 +34,10 @@
    description:  Use directory < 1.2 and old-time
    default:      False
